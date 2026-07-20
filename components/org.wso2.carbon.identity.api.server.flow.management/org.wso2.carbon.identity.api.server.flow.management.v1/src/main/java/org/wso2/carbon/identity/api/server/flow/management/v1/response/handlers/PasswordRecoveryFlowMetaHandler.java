@@ -29,6 +29,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.wso2.carbon.identity.api.server.flow.management.v1.constants.FlowEndpointConstants.END_USER_ATTRIBUTE_PROFILE;
+import static org.wso2.carbon.identity.api.server.flow.management.v1.constants.FlowEndpointConstants.Executors.DAON_EXECUTOR;
 import static org.wso2.carbon.identity.api.server.flow.management.v1.constants.FlowEndpointConstants.Executors.USER_RESOLVE_EXECUTOR;
 import static org.wso2.carbon.identity.api.server.flow.management.v1.constants.FlowEndpointConstants.USER_IDENTIFIER;
 import static org.wso2.carbon.identity.api.server.flow.management.v1.constants.FlowEndpointConstants.USER_IDENTIFIER_NAME;
@@ -84,6 +85,7 @@ public class PasswordRecoveryFlowMetaHandler extends AbstractMetaResponseHandler
 
         List<String> supportedExecutors = new ArrayList<>(super.getSupportedExecutors());
         supportedExecutors.add(USER_RESOLVE_EXECUTOR);
+        supportedExecutors.add(DAON_EXECUTOR);
         return supportedExecutors;
     }
 
