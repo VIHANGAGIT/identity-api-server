@@ -535,11 +535,12 @@ public class Utils {
                     ERROR_CODE_UNSUPPORTED_EXECUTOR.getDescription()));
         }
 
-        // For password recovery flow, ensure at least one of the following executors is present.
+        // For password recovery flow, ensure at least one recognized recovery factor executor is present.
         if (metaResponseHandler instanceof PasswordRecoveryFlowMetaHandler) {
             if (!executors.contains(FlowEndpointConstants.Executors.EMAIL_OTP_EXECUTOR) &&
                     !executors.contains(FlowEndpointConstants.Executors.SMS_OTP_EXECUTOR) &&
-                    !executors.contains(FlowEndpointConstants.Executors.MAGIC_LINK_EXECUTOR)) {
+                    !executors.contains(FlowEndpointConstants.Executors.MAGIC_LINK_EXECUTOR) &&
+                    !executors.contains(FlowEndpointConstants.Executors.DAON_EXECUTOR)) {
                 throw handleFlowMgtException(new FlowMgtClientException(
                         FlowEndpointConstants.ErrorMessages.ERROR_CODE_REQUIRED_EXECUTOR_MISSING.getCode(),
                         FlowEndpointConstants.ErrorMessages.ERROR_CODE_REQUIRED_EXECUTOR_MISSING.getMessage(),
